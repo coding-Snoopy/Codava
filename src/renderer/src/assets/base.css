@@ -1,0 +1,330 @@
+:root {
+  /* 浅色现代风基础色板 */
+  --ev-c-white: #ffffff;
+  --ev-c-white-soft: #f7f8fa;
+  --ev-c-white-mute: #eef0f4;
+
+  --ev-c-black: #1e2430;
+  --ev-c-black-soft: #2a3140;
+  --ev-c-black-mute: #3a4356;
+
+  --ev-c-gray-1: #c9ced8;
+  --ev-c-gray-2: #dfe3ea;
+  --ev-c-gray-3: #e3e6ec;
+
+  --ev-c-text-1: #1e2430;
+  --ev-c-text-2: #5a6472;
+  --ev-c-text-3: #9aa3b2;
+  --ev-c-text-4: #c2c9d4;
+
+  /* 靛蓝强调色（Indigo） */
+  --ev-c-accent: #4f46e5;
+  --ev-c-accent-soft: #6366f1;
+  --ev-c-accent-bg: #eef0fe;
+
+  /* 浅色背景下加深的语义色，保证白底可读 */
+  --ev-c-good: #3f8f3f;
+  --ev-c-warn: #c07a10;
+  --ev-c-bad: #d1443f;
+
+  --ev-button-alt-border: transparent;
+  --ev-button-alt-text: var(--ev-c-text-1);
+  --ev-button-alt-bg: var(--ev-c-gray-2);
+  --ev-button-alt-hover-border: transparent;
+  --ev-button-alt-hover-text: var(--ev-c-accent);
+  --ev-button-alt-hover-bg: var(--ev-c-accent-bg);
+}
+
+/* 使用 html:root（specificity 高于 Element Plus 自带的 :root）：
+   保证应用主题变量始终覆盖库默认变量，不受 CSS 注入顺序影响 */
+html:root {
+  --color-background: var(--ev-c-white-mute);
+  --color-background-soft: var(--ev-c-white);
+  --color-background-mute: var(--ev-c-white-soft);
+
+  --color-text: var(--ev-c-text-1);
+
+  /* ===== 排版标尺：布局尺寸与字号一律引用这里，避免在组件里写死 ===== */
+  /* 间距与分栏间隙 */
+  --ev-space-1: 4px;
+  --ev-space-2: 8px;
+  --ev-space-3: 12px;
+  --ev-space-4: 16px;
+  --ev-space-5: 20px;
+  --ev-space-6: 24px;
+  --ev-gutter: 8px;
+
+  /* 字号层级：分区标题 xs / 正文 sm / 关键数值 md / 品牌 lg */
+  --ev-font-xs: 11px;
+  --ev-font-sm: 12px;
+  --ev-font-md: 13px;
+  --ev-font-lg: 15px;
+
+  /* 圆角与阴影 */
+  --ev-radius-card: 10px;
+  --ev-radius-ctrl: 6px;
+  --ev-shadow-card: 0 1px 3px rgba(30, 36, 48, 0.06);
+  --ev-shadow-pop: 0 8px 24px rgba(30, 36, 48, 0.14);
+
+  /* 固定尺寸：面板头 / 状态栏 / 活动栏 */
+  --ev-header-h: 34px;
+  --ev-status-h: 24px;
+  --ev-activity-w: 44px;
+
+  /* ===== Element Plus 浅色主题对齐（统一由上方调色板驱动） ===== */
+  /* 背景与遮罩 */
+  --el-bg-color: var(--color-background-soft);
+  --el-bg-color-page: var(--color-background);
+  --el-bg-color-overlay: var(--color-background-soft);
+
+  /* 文本：主文本/常规文本/次要文本/占位符/禁用 */
+  --el-text-color-primary: var(--ev-c-text-1);
+  --el-text-color-regular: var(--ev-c-text-1);
+  --el-text-color-secondary: var(--ev-c-text-2);
+  --el-text-color-placeholder: var(--ev-c-text-3);
+  --el-text-color-disabled: var(--ev-c-text-4);
+
+  /* 填充（表头、悬停行、输入框底色等） */
+  --el-fill-color-blank: var(--color-background-soft);
+  --el-fill-color-lighter: #fafbfd;
+  --el-fill-color-extra-light: #f7f8fa;
+  --el-fill-color-light: #f2f4f8;
+  --el-fill-color: #eaedf3;
+
+  /* 边框 */
+  --el-border-color-extra-light: #f0f2f6;
+  --el-border-color-lighter: #eceff3;
+  --el-border-color-light: var(--ev-c-gray-3);
+  --el-border-color: var(--ev-c-gray-3);
+  --el-border-color-dark: var(--ev-c-gray-2);
+  --el-border-color-hover: var(--ev-c-accent-soft);
+  --el-disabled-bg-color: var(--ev-c-white-soft);
+  --el-disabled-text-color: var(--ev-c-text-4);
+  --el-disabled-border-color: var(--ev-c-gray-3);
+  --el-border-radius-base: 6px;
+
+  /* 靛蓝主色及衍生浅色（Element Plus 悬停/浅底依赖） */
+  --el-color-primary: #4f46e5;
+  --el-color-primary-light-3: #857cec;
+  --el-color-primary-light-5: #a5a0f1;
+  --el-color-primary-light-7: #c6c3f7;
+  --el-color-primary-light-8: #d9d6fa;
+  --el-color-primary-light-9: #eef0fe;
+  --el-color-primary-dark-2: #3f38b7;
+
+  /* 组件级变量：树 / 表格 / 输入框 / 下拉 / 弹层 / 弹窗 / 滚动条 */
+  --el-tree-text-color: var(--ev-c-text-1);
+  --el-tree-node-hover-bg-color: var(--ev-c-accent-bg);
+  --el-table-border-color: var(--ev-c-gray-3);
+  --el-table-bg-color: var(--color-background-soft);
+  --el-table-tr-bg-color: var(--color-background-soft);
+  --el-table-header-bg-color: var(--el-fill-color-light);
+  --el-table-header-text-color: var(--ev-c-text-2);
+  --el-table-text-color: var(--ev-c-text-1);
+  --el-table-row-hover-bg-color: var(--ev-c-accent-bg);
+  --el-table-current-row-bg-color: var(--ev-c-accent-bg);
+  --el-input-bg-color: var(--color-background-soft);
+  --el-input-text-color: var(--ev-c-text-1);
+  --el-input-placeholder-color: var(--ev-c-text-3);
+  --el-input-border-color: var(--ev-c-gray-3);
+  --el-input-hover-border-color: var(--ev-c-accent-soft);
+  --el-input-focus-border-color: var(--ev-c-accent);
+  --el-select-input-color: var(--ev-c-text-1);
+  --el-select-placeholder-color: var(--ev-c-text-3);
+  --el-select-dropdown-item-split-color: var(--ev-c-accent-bg);
+  --el-select-border-color-hover: var(--ev-c-accent-soft);
+  --el-popper-border-color: var(--ev-c-gray-3);
+  --el-popup-modal-bg-color: rgba(30, 36, 48, 0.35);
+  --el-scrollbar-bg-color: var(--ev-c-gray-1);
+  --el-scrollbar-hover-bg-color: var(--ev-c-text-3);
+  --el-mask-color: rgba(255, 255, 255, 0.85);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  line-height: 1.6;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 浅色圆角滚动条（Electron/Chromium） */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ev-c-gray-1);
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ev-c-text-3);
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* ===== 全局组件级浅色对齐（teleport 到 body 的下拉弹层/弹窗/消息框等） ===== */
+.el-popper {
+  border-color: var(--el-popper-border-color);
+  background: var(--color-background-soft);
+  color: var(--ev-c-text-1);
+}
+
+.el-popper.is-light {
+  border: 1px solid var(--ev-c-gray-3);
+  background: var(--color-background-soft);
+  color: var(--ev-c-text-1);
+  box-shadow: 0 6px 18px rgba(30, 36, 48, 0.12);
+}
+
+.el-popper .el-popper__arrow::before {
+  background: var(--color-background-soft);
+  border-color: var(--ev-c-gray-3);
+}
+
+/* 下拉选项：普通/悬停/选中/禁用 */
+.el-select-dropdown__item,
+.el-dropdown-menu__item,
+.el-cascader-node {
+  color: var(--ev-c-text-1);
+}
+
+.el-select-dropdown__item.is-hovering,
+.el-select-dropdown__item.hover,
+.el-dropdown-menu__item:not(.is-disabled):hover,
+.el-dropdown-menu__item:focus {
+  background-color: var(--ev-c-accent-bg);
+  color: var(--ev-c-text-1);
+}
+
+.el-select-dropdown__item.is-selected {
+  color: var(--ev-c-accent);
+  font-weight: 600;
+}
+
+.el-select-dropdown__item.is-disabled {
+  color: var(--ev-c-text-4);
+}
+
+/* 选择框本体：白底 + 浅灰 inset 边框 + 深色文本 */
+.el-select__wrapper {
+  background-color: var(--color-background-soft);
+  box-shadow: 0 0 0 1px var(--ev-c-gray-3) inset;
+}
+
+.el-select__wrapper:hover {
+  box-shadow: 0 0 0 1px var(--ev-c-accent-soft) inset;
+}
+
+.el-select__wrapper.is-focused {
+  box-shadow: 0 0 0 1px var(--ev-c-accent) inset;
+}
+
+.el-select__wrapper.is-disabled {
+  background-color: var(--ev-c-white-soft);
+}
+
+.el-select__selected-item,
+.el-select__selection-text {
+  color: var(--ev-c-text-1);
+}
+
+.el-select__placeholder {
+  color: var(--ev-c-text-1);
+}
+
+.el-select__placeholder.is-transparent {
+  color: var(--ev-c-text-3);
+}
+
+/* 弹窗 / 消息框 / 轻提示 */
+.el-dialog,
+.el-message-box {
+  background: var(--color-background-soft);
+  border: 1px solid var(--ev-c-gray-3);
+  color: var(--ev-c-text-1);
+}
+
+.el-dialog__title,
+.el-message-box__title,
+.el-message-box__content {
+  color: var(--ev-c-text-1);
+}
+
+.el-message {
+  background: var(--color-background-soft);
+  border-color: var(--ev-c-gray-3);
+}
+
+.el-message__content {
+  color: var(--ev-c-text-1) !important;
+}
+
+/* 表格（非 scoped 区域也能保证浅色） */
+.el-table,
+.el-table__inner-wrapper,
+.el-table tr,
+.el-table th.el-table__cell,
+.el-table td.el-table__cell {
+  background-color: var(--el-table-tr-bg-color);
+  color: var(--ev-c-text-1);
+}
+
+.el-table th.el-table__cell {
+  color: var(--ev-c-text-2);
+  font-weight: 600;
+}
+
+.el-table__inner-wrapper::before {
+  background-color: var(--ev-c-gray-3);
+}
+
+.el-table td.el-table__cell,
+.el-table th.el-table__cell.is-leaf {
+  border-color: var(--ev-c-gray-3);
+}
+
+/* 空数据 / 加载占位文本 */
+.el-empty__description p,
+.el-table__empty-text {
+  color: var(--ev-c-text-3);
+}
